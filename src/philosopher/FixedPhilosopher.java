@@ -11,9 +11,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 破坏产生死锁的循环条件
- * 使第五个哲学家不按照先获得右边筷子，再获得左边筷子的方式进行
- * @author lecky
  *
  */
 public class FixedPhilosopher {

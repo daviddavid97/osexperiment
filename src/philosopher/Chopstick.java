@@ -7,7 +7,6 @@ package philosopher;
  * 满足：
  * 每根筷子同时只能被一个哲学家获得，若有另外一个哲学家请求获得该筷子，则需要等待
  * 哲学家使用完筷子之后就放回并通知其他哲学家使用
- * @author lecky
  *
  */
 public class Chopstick {

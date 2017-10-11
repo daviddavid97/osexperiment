@@ -4,11 +4,11 @@
  */
 package philosopher;
 
+import java.util.Random;
+
+import static philosopher.main.times;
+
 /**
- * 每个哲学家可以进行思考或者吃饭，吃饭时需要先后获得右边和左边的筷子
- * 若没有同时获得右边和左边的筷子，则等待，
- * 若使用完之后就返回。
- * @author lecky
  *
  */
 public class Philosopher implements Runnable{
@@ -28,21 +28,27 @@ public class Philosopher implements Runnable{
     public void run() {
         try {
             while (!Thread.interrupted()) {
+                times = times + 1;
+                System.out.println(times/5);
                 System.out.println(this + " thinking .......");
                 thinking();
-                System.out.println(this+" start to eat and take right stick");
-                right.take();
-                System.out.println(this+" take left stick");
-                left.take();
-                System.out.println(this+" eating");
+
+                int random = new Random().nextInt(2);
+                if (random == 0) {
+                    System.out.println(this + " start to eat and take right stick");
+                    right.take();
+                } else {
+                    System.out.println(this + " take left stick");
+                    left.take();
+                }
+                System.out.println(this + " eating");
                 thinking();//吃饭
                 right.drop();
                 left.drop();
             }
-        } catch (InterruptedException e) {
-            System.out.println(this+"InterruptedException");
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         }
-
     }
 
     /**
@@ -50,7 +56,7 @@ public class Philosopher implements Runnable{
      * @throws InterruptedException
      */
     private void thinking() throws InterruptedException{
-        Thread.sleep(thinkTime*100);
+        Thread.sleep(thinkTime*1);
     }
 
     @Override
