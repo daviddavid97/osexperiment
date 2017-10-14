@@ -4,8 +4,6 @@
  */
 package philosopher;
 
-import java.util.Random;
-
 import static philosopher.main.times;
 
 /**
@@ -23,7 +21,8 @@ public class Philosopher implements Runnable{
         this.index = index;
         this.thinkTime = thinkingTime;
     }
-
+    /*
+    这是会产生死锁的版本
     @Override
     public void run() {
         try {
@@ -41,6 +40,28 @@ public class Philosopher implements Runnable{
                     System.out.println(this + " take left stick");
                     left.take();
                 }
+                System.out.println(this + " eating");
+                thinking();//吃饭
+                right.drop();
+                left.drop();
+            }
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+    }
+    */
+    @Override
+    public void run() {
+        try {
+            while (!Thread.interrupted()) {
+                times = times + 1;
+                System.out.println(times/5);
+                System.out.println(this + " thinking .......");
+                thinking();
+                System.out.println(this + " start to eat and take right stick");
+                right.take();
+                System.out.println(this + " take left stick");
+                left.take();
                 System.out.println(this + " eating");
                 thinking();//吃饭
                 right.drop();
