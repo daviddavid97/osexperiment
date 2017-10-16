@@ -23,5 +23,4 @@ public class FixedPhilosopher {
         executor.shutdownNow();
     }
 
-    }
 }
