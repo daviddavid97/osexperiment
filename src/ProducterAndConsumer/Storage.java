@@ -2,14 +2,6 @@ package ProducterAndConsumer;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-/**
- * 仓库类Storage实现缓冲区
- *
- * Email:530025983@qq.com
- *
- * @author MONKEY.D.MENG 2011-03-15
- *
- */
 public class Storage
 {
     // 仓库最大存储量
@@ -19,6 +11,7 @@ public class Storage
     private LinkedBlockingQueue<Object> list = new LinkedBlockingQueue<Object>(
             100);
 
+    //P操作：使S=S+1，若S>0,唤醒等待队列中的一个进程。
     // 生产num个产品
     public void produce(int num)
     {
@@ -46,6 +39,7 @@ public class Storage
     }
 
     // 消费num个产品
+    //V操作：使S=S-1，若S>=0，则该进程继续执行，否则该进程排入等待队列。
     public void consume(int num)
     {
         // 如果仓库存储量不足

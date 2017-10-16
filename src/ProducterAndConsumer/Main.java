@@ -29,7 +29,7 @@ public class Main {
         p4.setNum(10);
         p5.setNum(10);
         p6.setNum(10);
-        p7.setNum(80);
+        p7.setNum(40);
 
         // 设置消费者产品消费数量
         c1.setNum(50);
