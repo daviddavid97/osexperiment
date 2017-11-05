@@ -5,7 +5,6 @@
 package philosopher;
 
 
-import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,7 +15,6 @@ import java.util.concurrent.Executors;
  *
  */
 public class DeadlockPhilosopher {
-    @Test
     public static void test() throws InterruptedException {
         ExecutorService executor = Executors.newCachedThreadPool();
         int size=5;

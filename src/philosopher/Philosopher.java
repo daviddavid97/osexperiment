@@ -50,7 +50,6 @@ public class Philosopher implements Runnable{
         }
     }
     */
-    @Override
     public void run() {
         try {
             while (!Thread.interrupted()) {

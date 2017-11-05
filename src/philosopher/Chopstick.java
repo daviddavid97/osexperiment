@@ -18,7 +18,6 @@ public class Chopstick {
         this.index = index;
     }
 
-    @Override
     public String toString() {
         return "Chopstick [index=" + index + "]";
     }
